@@ -4,104 +4,62 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Quando&family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
     <title>Rock Paper Scissors!</title>
 </head>
 
 <body>
-    <script>
-        const computerPlay = () => {
+    <!-- Section: Header -->
+    <header>
+        <h1>ROCK PAPER SCISSORS!</h1>
+        <p>Made with <span>❤</span> by Rahim Ratnani</p>
+    </header>
 
-            let choices = ["rock", "paper", "scissors"];
-            let compChoice = Math.floor(Math.random() * 3);
+    <!-- Section: Score board -->
+    <section id="score-board">
+        <div id="player">
+            <h2>YOU</h2>
+            <p>0</p>
+        </div>
+        <div id="result" class="hide">
+            <h2>YOU WIN!</h2>
+        </div>
+        <div id="computer">
+            <h2>COMPUTER</h2>
+            <p>0</p>
+        </div>
+    </section>
 
-            return choices[compChoice];
+    <!-- Section: Instruction -->
+    <h1 id="instruction">Click your choice!</h1>
 
-        };
+    <!-- Section: Play again -->
+    <div id="playAgain" class="hide">
+        <button class="btn">Play Again!</button>
+    </div>
+    
 
+    <!-- Section: Options -->
+    <section id="options">
+        <button id="rock" class="btn">ROCK</button>
+        <button id="paper" class="btn">PAPER</button>
+        <button id="scissors" class="btn">SCISSORS</button>
+    </section> 
 
-        const userPlay = () => {
+    <!-- Section: Notify -->
+    <section id="notify">
+        <p id="playerPick"></p>
+        <p id="computerPick"></p>
+        <p id="notification"></p>
+    </section>
 
-            let playerChoice = prompt("Rock, Paper or Scissors?");
+    <!-- Section: Footer -->
+    <footer id="footer">
+        <p>This project is a part of <a href="https://www.theodinproject.com/lessons/rock-paper-scissors">The Odin Project curriculum</a>.</p>
+    </footer>
 
-            if (!(playerChoice === "" || playerChoice === null)) {
-                playerChoice = playerChoice.toLowerCase();
-
-                if (!(playerChoice === "rock" || playerChoice === "paper" || playerChoice === "scissors")) {
-                    alert("Enter a valid input");
-                } else {
-                    return playerChoice;
-                }
-
-            } else {
-                alert("Round is canceled.");
-            }
-
-        };
-
-
-        function game() {
-
-            let playerPoints = 0;
-            let computerPoints = 0;
-            let tie = 0;
-
-
-            function playRound(playerSelection, computerSelection) {
-
-                switch (true) {
-                    case computerSelection === playerSelection:
-                        alert("IT'S A TIE!");
-                        tie++;
-                        break;
-                    case computerSelection === "rock" && playerSelection === "paper":
-                        alert("YOU WIN!");
-                        playerPoints++;
-                        break;
-                    case computerSelection === "rock" && playerSelection === "scissors":
-                        alert("YOU LOSE!");
-                        computerPoints++;
-                        break;
-                    case computerSelection === "paper" && playerSelection === "rock":
-                        alert("YOU LOSE!");
-                        computerPoints++;
-                        break;
-                    case computerSelection === "paper" && playerSelection === "scissors":
-                        alert("YOU WIN!");
-                        playerPoints++;
-                        break;
-                    case computerSelection === "scissors" && playerSelection === "rock":
-                        alert("YOU WIN!");
-                        playerPoints++;
-                        break;
-                    case computerSelection === "scissors" && playerSelection === "paper":
-                        alert("YOU LOSE!");
-                        computerPoints++;
-                        break;
-                }
-
-            }
-
-
-            for (let i = 0; i < 5; i++) {
-                playRound(userPlay(), computerPlay());
-            }
-
-
-            if (computerPoints > playerPoints) {
-                console.log("You Lose!");
-            } else if (computerPoints === playerPoints) {
-                console.log("It's a Tie!");
-            } else {
-                console.log("You Win!");
-            }
-
-
-            console.log("Your points: " + playerPoints);
-            console.log("Computer's points: " + computerPoints);
-            console.log("Tie: " + tie);
-
-        }
-    </script>
+    <script src="app.js"></script>
 </body>
 
 </html>
