@@ -130,10 +130,8 @@ div#playAgain {
 #footer {
     color: white;
     text-align: center;
-    margin-bottom: 0;
     position: absolute;
     bottom: 0;
-    padding: 0.5rem;
     font-size: 1rem;
     width: 100%;
     background: #000000;
@@ -144,6 +142,7 @@ div#playAgain {
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
-#footer a {
+#footer p,a {
     color: #E9E9E9;
+    padding: 0.5rem;
 }
